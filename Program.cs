@@ -14,3 +14,7 @@ if (Directory.Exists(path))
 {
     Console.WriteLine("La ruta ingresada no existe");
 }
+if (File.Exists(@"C:\tp08-2022-tomicon\index.csv"))
+{
+    File.Create(@"C:\tp08-2022-tomicon\index.csv");    
+}
