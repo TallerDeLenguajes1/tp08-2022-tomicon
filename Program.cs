@@ -10,11 +10,19 @@ if (Directory.Exists(path))
     {
         Console.WriteLine(item);
     }
+    List<string> renglones = new List<string>();
+    int i=1;
+    foreach (var item in archivos)
+    {
+        string nombre= Path.GetFileNameWithoutExtension(item);
+        string extension = Path.GetExtension(item);
+        string linea = i + "," + nombre + "," + extension;
+        i++;
+        renglones.Add(linea);
+    }
+    File.WriteAllLines(@"C:\tp08-2022-tomicon\index.csv",renglones);
 } else
 {
     Console.WriteLine("La ruta ingresada no existe");
 }
-if (File.Exists(@"C:\tp08-2022-tomicon\index.csv"))
-{
-    File.Create(@"C:\tp08-2022-tomicon\index.csv");    
-}
+
